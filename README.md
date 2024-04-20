@@ -23,6 +23,8 @@
 <li>Added reserve font for all</li>
 <li>Organized the project folder </li>
 <li>Added two new hidden section for rooms</li>
+<li>Added shadows for buttons</li>
+<li>Shadows parametrs changed</li>
 </ol>
 <p>This is probably not all the project updates 0_0</p>
 <p>Only time will show</p>
