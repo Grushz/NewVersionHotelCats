@@ -52,27 +52,28 @@
   src: url(fonts/Lato/Lato-Bold.ttf);
 }
 
-h1 {
+.identation-zero {
+  margin: 0;
+  padding: 0;
+}
+
+.main-title {
   font-size: 62px;
-  margin: 0;
-  padding: 0;
-  font-family: 'Rubik', Arial, sans-serif;
+  font-family: "Rubik", Arial, sans-serif;
+  z-index: 2;
+  position: relative;
+  left: -2px;
 }
 
-h2 {
-  font-family: 'Rubik', Arial sans-serif;
+.middle-title {
+  font-family: "Rubik", Arial sans-serif;
   font-size: 36px;
-  margin: 0;
-  padding: 0;
 }
 
-h3 {
+.low-title {
+  font-family: "Rubik", Arial sans-serif;
   font-size: 20px;
   margin: 25px 0px 15px 0px;
-}
-
-.hidden {
-  display: none !important;
 }
 
 a {
@@ -83,14 +84,12 @@ a {
 p {
   margin: 0;
   padding: 0;
-  font-size: 16px;
 }
 
 body {
-  font-family: 'Lato', Arial, sans-serif;
-  background-color: #FFFEFD;
-  margin: 0;
-  padding: 0;
+  font-family: "Lato", Arial, sans-serif;
+  background-color: #fffefd;
+  font-size: 16px;
 }
 
 .main-container {
@@ -102,6 +101,7 @@ body {
   -ms-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
+  overflow: hidden;
 }
 
 .header-main {
@@ -109,11 +109,10 @@ body {
   justify-content: space-between;
   width: 100%;
   align-items: center;
+  height: 76px;
 }
 
 .logo {
-  margin: 0;
-  padding: 12px 0;
   position: relative;
   left: 98px;
 }
@@ -139,38 +138,44 @@ nav a {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin: 0;
-  padding: 0;
   width: 100%;
 }
 
 .town-marker {
-  font-size: 14px;
-  margin: 0;
+  
   position: relative;
   top: 8px;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 17px;
+  letter-spacing: 0%;
 }
 
 .main-text {
-  font-size: 16px;
-  margin: 0;
+  
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 24px;
+  letter-spacing: 0%;
   padding-top: 5px;
+  z-index: 2;
 }
 
 .main-picture-content {
-  width: 50%;
+  width: 346px;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  text-align: left;
-  background-image: url("Images/Mask Group.png");
   padding-left: 198px;
-  background-repeat: no-repeat;
+  z-index: 10;
 }
-
+.main-picture::before {
+  content: url("Images/Mask Group.png");
+  position: absolute;
+}
 .button-high {
-  width: 200px;
+  width: 206px;
   height: 50px;
   background-color: rgb(255, 255, 255);
   border: none;
@@ -180,21 +185,17 @@ nav a {
   cursor: pointer;
   position: relative;
   margin-top: 40px;
+  font-size: 14px;
   font-weight: 400;
   padding: 5px;
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 20px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 25px 0px rgba(26, 33, 47, 0.2);
+  padding-left: 30px;
 }
 
-.button-textup {
-  font-size: 14px;
-  font-family: 'Lato', Arial, sans-serif;
-  margin-left: 30px;
-}
-
-.button-textup::after {
-  content: url('Images/paw.svg');
+.button-high::after {
+  content: url("Images/paw.svg");
   position: absolute;
   right: 7px;
   top: 7px;
@@ -202,6 +203,14 @@ nav a {
 
 .advanteges {
   position: relative;
+}
+
+.card-all::after {
+  content: url("Images/pawBack.svg");
+  position: absolute;
+  right: -50px;
+  top: -130px;
+  z-index: -1;
 }
 
 .paw-up {
@@ -229,26 +238,26 @@ nav a {
 }
 
 .card {
+  box-sizing: border-box;
   width: 370px;
   height: 321px;
   background-color: rgb(255, 255, 255);
   border-radius: 10px;
   box-shadow: 0px 0px 30px -15px rgba(0, 0, 0, 0.2);
+  padding-left: 30px;
+  padding-top: 30px;
 }
 
 .card-img {
   width: 91px;
   height: 91px;
   object-fit: none;
-  background-color: #FAC663;
+  background-color: #fac663;
   border-radius: 50%;
-  margin-left: 30px;
-  margin-top: 30px;
 }
 
 .advanteges-text {
-  margin-left: 30px;
-  width: 285px;
+  width: 290px;
 }
 
 .buttonimg {
@@ -261,6 +270,13 @@ nav a {
   text-align: center;
   margin-top: 140px;
   margin-bottom: 70px;
+}
+
+.room::before {
+  content: url("Images/fishBack.svg");
+  position: absolute;
+  top: 35px;
+  z-index: -1;
 }
 
 .rooms {
@@ -301,37 +317,45 @@ nav a {
 }
 
 .room-list {
-  list-style-image: url(Images/point.png);
-  padding-left: 20px;
-  width: auto;
+  list-style: none;
+  width: 283px;
   margin: 0;
+  padding-left: 9px;
+}
+
+.orange-dot::before {
+  content: url("Images/point.png");
+  position: relative;
+  right: 8px;
 }
 
 .button-low {
+  padding: 0;
   width: 200px;
   height: 50px;
-  background-color: #FF7236;
+  background-color: #ff7236;
   border: none;
   border-radius: 25px;
   cursor: pointer;
   margin-top: 25px;
+  font-size: 14px;
   font-weight: 400;
   position: relative;
-  padding: 5px;
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 20px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 25px 0px rgba(26, 33, 47, 0.2);
+  padding-left: 30px;
 }
 
 .button-textlow {
   font-size: 14px;
-  font-family: 'Lato', Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
   margin-left: 30px;
 }
 
-.button-textlow::after {
-  content: url('Images/paw-rev.svg');
+.button-low::after {
+  content: url("Images/paw-rev.svg");
   position: absolute;
   right: 7px;
   top: 7px;
@@ -424,8 +448,16 @@ nav a {
   margin-bottom: 55px;
 }
 
+.review-card::after {
+  content: url("Images/pawDown.svg");
+  position: absolute;
+  top: -105px;
+  right: -35px;
+  z-index: -1;
+}
+
 .review-text::before {
-  content: url('Images/review.svg');
+  content: url("Images/review.svg");
   position: absolute;
   left: -28px;
 }
@@ -494,16 +526,16 @@ nav a {
 }
 
 .contact-title {
-  height: 25px;
+  height: 34px;
   display: block;
   padding-top: 60px;
   padding-bottom: 50px;
   text-align: left;
-  font-size: 36px;
+  font-size: 34px;
 }
 
 .contact-info {
-  border: 1px solid gray;
+  
   background-color: rgb(250, 198, 99);
   width: 370px;
   height: 580px;
@@ -512,15 +544,13 @@ nav a {
 
 .contact-head {
   margin: 0;
-  padding-bottom: 10px;
+  margin-bottom: 10px;
   font-size: 16px;
 }
 
-
 .contact-text {
-  margin: 0;
   padding: 0;
-  padding-bottom: 30px;
+  margin-bottom: 30px;
   font-size: 15px;
   list-style: none;
 }
@@ -553,13 +583,9 @@ nav a {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
+  height: 75.5px;
   border-bottom: rgb(224, 224, 224) 1px solid;
-  padding-bottom: 8px;
-}
-
-.footer-logo {
-  margin-left: 198px;
+  padding: 0px 100px 0px 100px;
 }
 
 .footer-info {
@@ -581,7 +607,7 @@ nav a {
   text-decoration: none;
 }
 
-.popup-reserv {
+.popup {
   margin: 0 auto;
   position: relative;
   width: 570px;
@@ -595,11 +621,20 @@ nav a {
   overflow: hidden;
 }
 
+.popup::before {
+  content: url("Images/pawpopup.svg");
+  position: absolute;
+  top: -20px;
+  left: -20px;
+}
 .close {
   position: absolute;
   top: 40px;
   right: 40px;
   cursor: pointer;
+  border: none;
+  background-color: white;
+  box-sizing: border-box;
 }
 
 .pawpop {
@@ -645,24 +680,29 @@ nav a {
   border-radius: 25px;
 }
 
-.button-reserv {
+.button-reservation {
   width: 230px;
   height: 50px;
-  background-color: #FF7236;
+  padding: 0;
+  background-color: #ff7236;
   border: none;
-  color: rgb(0, 0, 0);
-  text-align: left;
   border-radius: 25px;
   cursor: pointer;
-  transition: opacity 0.2s;
+  font-size: 14px;
   font-weight: 400;
-  text-align: center;
-  padding: 5px;
   position: relative;
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 20px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 25px 0px rgba(26, 33, 47, 0.2);
+  padding-left: 40px;
+}
+
+.button-reservation::after {
+  content: url("Images/paw-rev.svg");
+  position: absolute;
+  right: 7px;
+  top: 7px;
 }
 
 .popup-accept {
@@ -680,35 +720,53 @@ nav a {
   overflow: hidden;
 }
 
-.popupAcctitle {
+.popup::before {
+  content: url("Images/pawAcc.svg");
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+}
+
+.popup-accept-title {
   font-size: 28px;
   padding-top: 70px;
   padding-bottom: 25px;
 }
 
-.button-acc {
+.button-accept {
+  box-sizing: border-box;
+  padding: 0;
   width: 122px;
   height: 50px;
-  background-color: #FF7236;
+  background-color: #ff7236;
   border: none;
-  color: rgb(0, 0, 0);
-  text-align: left;
+  font-size: 16px;
   border-radius: 25px;
   cursor: pointer;
-  transition: opacity 0.2s;
   margin-top: 50px;
   font-weight: 400;
   text-align: center;
-  padding: 5px;
+  padding-left: 34px;
   position: relative;
   color: white;
   display: flex;
   align-items: center;
-  box-shadow: 0px 0px 20px -6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 5px 25px 0px rgba(26, 33, 47, 0.2);
+}
+
+.button-accept::after {
+  content: url("Images/paw-rev.svg");
+  position: absolute;
+  right: 7px;
+  top: 7px;
 }
 
 .pawAcc {
   position: absolute;
   left: -10px;
   bottom: -15px;
+}
+
+.hidden {
+  display: none;
 }
