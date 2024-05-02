@@ -1,6 +1,6 @@
 # NewVersionHotelCats
-<p style="font-weight: bold;">HotelCats return again with new code and function inside</p>
-<p style="font-weight: bold;">Date 02.05.2024</p>
+<p><b>HotelCats return again with new code and function inside</b></p>
+<p><b>Date 02.05.2024</b></p>
 <h3>Update list:</h3>
 <ol>
 <li>Added a lot of CSS animations</li>
@@ -23,8 +23,8 @@
 <h4>Thanks you for your attention!</h4>
 
 <br>
-<p style="font-weight: bold;">HotelCats return with new code inside</p>
-<p style="font-weight: bold;">Date 20.04.2024</p>
+<p><b>HotelCats return with new code inside</b></p>
+<p><b>Date 20.04.2024</b></p>
 <h3>Update list:</h3>
 <ol>
 <li>Update positioning all blocks (added big container)</li>
