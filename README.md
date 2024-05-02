@@ -1,5 +1,5 @@
 # NewVersionHotelCats
-<p><b>HotelCats return again with new code and function inside</b></p>
+<p><b>HotelCats return again with new code and functions inside</b></p>
 <p><b>Date 02.05.2024</b></p>
 <h3>Update list:</h3>
 <ol>
