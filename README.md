@@ -1,6 +1,6 @@
 # NewVersionHotelCats
-<p>HotelCats return again with new code and function inside</p>
-<p>Date 02.05.2024</p>
+<p style="font-weight: bold;">HotelCats return again with new code and function inside</p>
+<p style="font-weight: bold;">Date 02.05.2024</p>
 <h3>Update list:</h3>
 <ol>
 <li>Added a lot of CSS animations</li>
@@ -22,9 +22,9 @@
 <p> To sum up, there are still many subtleties that are worth exploring, I need to learn how to work with classes correctly and find common ones. And also make the java script code beautiful and understandable. But damn it, it's alive and working... (At least for now)</p>
 <h4>Thanks you for your attention!</h4>
 
-
-<p>HotelCats return with new code inside</p>
-<p>Date 20.04.2024</p>
+<br>
+<p style="font-weight: bold;">HotelCats return with new code inside</p>
+<p style="font-weight: bold;">Date 20.04.2024</p>
 <h3>Update list:</h3>
 <ol>
 <li>Update positioning all blocks (added big container)</li>
