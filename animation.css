@@ -1,0 +1,127 @@
+@keyframes hidden {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+@keyframes show {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slide-left-two {
+    from {
+        right: 0px;
+    }
+
+    to {
+        right: 300px;
+    }
+}
+
+@keyframes slide-left-three {
+    from {
+        right: 300px;
+    }
+
+    to {
+        right: 600px
+    }
+}
+
+@keyframes right-back {
+    from {
+        right: 600px;
+
+    }
+
+    to {
+        right: 0;
+    }
+}
+
+@keyframes slide-right-two {
+    from {
+        right: 300px;
+    }
+
+    to {
+        right: 0px
+    }
+}
+
+@keyframes slide-right-three {
+    from {
+        right: 600px;
+    }
+
+    to {
+        right: 300px
+    }
+}
+
+@keyframes left-back {
+    from {
+        right: 0;
+    }
+
+    to {
+        right: 600px
+    }
+}
+
+.hidden {
+    visibility: hidden;
+    position: absolute;
+    opacity: 0;
+    animation: hidden 1ms ease;
+    animation-delay: 500ms;
+}
+
+.show {
+    visibility: visible;
+    animation: show 1s ease;
+    opacity: 1;
+
+}
+
+
+.left-two {
+    animation: slide-left-two 500ms ease;
+    right: 300px;
+}
+
+.left-three {
+    animation: slide-left-three 500ms ease;
+    right: 600px;
+}
+
+.right-back {
+    animation: right-back 500ms ease;
+
+}
+
+.right-two {
+    animation: slide-right-two 500ms ease;
+
+}
+
+.right-three {
+    animation: slide-right-three 500ms ease;
+    right: 300px;
+}
+
+.left-back {
+    animation: left-back 500ms ease;
+    right: 600px;
+
+}
