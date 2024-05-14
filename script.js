@@ -20,7 +20,6 @@ let button_reservation = document.querySelector('.button-reservation');
 let popup = document.querySelector('.popup');
 let popup_accept = document.querySelector('.popup-accept');
 let button_accept = document.querySelector('.button-accept');
-let form_main = document.querySelector('.form-main');
 
 /* Выше заданы основные переменные которыми мы будем манипулировать
  P.S. Вероятно так не делают, но я постарался сам понять как это сделать XD
