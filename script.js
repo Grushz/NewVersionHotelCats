@@ -20,6 +20,7 @@ let button_reservation = document.querySelector('.button-reservation');
 let popup = document.querySelector('.popup');
 let popup_accept = document.querySelector('.popup-accept');
 let button_accept = document.querySelector('.button-accept');
+let form_main = document.querySelector('.form-main');
 
 /* Выше заданы основные переменные которыми мы будем манипулировать
  P.S. Вероятно так не делают, но я постарался сам понять как это сделать XD
@@ -28,148 +29,57 @@ let button_accept = document.querySelector('.button-accept');
 
 /* Алгоритм переключения карточек комнат 
 при нажатии на каждую из навигационных точек */
+function switchSlide(currentIndex, room_Index) {
+    const dots = [room_dot1, room_dot2, room_dot3];
+    const slides = [room_first, room_second, room_third];
+
+    dots.forEach(dot => dot.classList.remove('slider-dot-active'));
+    slides.forEach(slide => {
+        slide.classList.remove('show');
+        slide.classList.add('hidden');
+    });
+
+    dots[room_Index].classList.add('slider-dot-active');
+    slides[room_Index].classList.remove('hidden');
+    slides[room_Index].classList.add('show');
+}
+
 room_dot1.onclick = function () {
-    room_dot1.classList.add('slider-dot-active');
-    room_dot2.classList.remove('slider-dot-active');
-    room_dot3.classList.remove('slider-dot-active');
-    room_first.classList.remove('hidden');
-    room_first.classList.add('show');
-    room_second.classList.add('hidden');
-    room_second.classList.remove('show');
-    room_third.classList.remove('show');
-    room_third.classList.add('hidden');
+    switchSlide(0, 0);
 }
 
 room_dot2.onclick = function () {
-    room_dot1.classList.remove('slider-dot-active');
-    room_dot2.classList.add('slider-dot-active');
-    room_dot3.classList.remove('slider-dot-active');
-    room_first.classList.add('hidden');
-    room_first.classList.remove('show');
-    room_second.classList.remove('hidden');
-    room_second.classList.add('show');
-    room_third.classList.remove('show');
-    room_third.classList.add('hidden');
+    switchSlide(0, 1);
 }
 
 room_dot3.onclick = function () {
-    room_dot1.classList.remove('slider-dot-active');
-    room_dot2.classList.remove('slider-dot-active');
-    room_dot3.classList.add('slider-dot-active');
-    room_first.classList.add('hidden');
-    room_first.classList.remove('show');
-    room_second.classList.add('hidden');
-    room_second.classList.remove('show');
-    room_third.classList.add('show');
-    room_third.classList.remove('hidden');
+    switchSlide(0, 2);
 }
 
-// Управление карточками комнат с помощью кнопки назад
+// Переключение карточек комнат при нажатии на кнопку назад
 room_arrow_back.onclick = function () {
-    if (room_first.classList.contains('show')) {
-        room_first.classList.toggle('hidden');
-        room_first.classList.toggle('show');
-        room_third.classList.toggle('hidden');
-        room_third.classList.toggle('show');
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.add('slider-dot-active');
-    }
-    else if (room_second.classList.contains('show')) {
-        room_second.classList.toggle('hidden');
-        room_second.classList.toggle('show');
-        room_first.classList.toggle('hidden');
-        room_first.classList.toggle('show');
-        room_dot1.classList.add('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-    }
-    else if (room_third.classList.contains('show')) {
-        room_third.classList.toggle('hidden');
-        room_third.classList.toggle('show');
-        room_second.classList.toggle('hidden');
-        room_second.classList.toggle('show');
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.add('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-    }
+    let currentIndex = Array.from(room_first.classList).includes('show') ? 0 :
+        Array.from(room_second.classList).includes('show') ? 1 : 2;
+    let room_Index = currentIndex === 0 ? 2 : currentIndex - 1;
+    switchSlide(currentIndex, room_Index);
 }
 
-// Управление карточками комнат с помощью кнопки вперед
+// Переключение карточек комнат при нажатии на кнопку вперед
 room_arrow_next.onclick = function () {
-    if (room_first.classList.contains('show')) {
-        room_first.classList.toggle('hidden');
-        room_first.classList.toggle('show');
-        room_second.classList.toggle('hidden');
-        room_second.classList.toggle('show');
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.add('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-    }
-    else if (room_second.classList.contains('show')) {
-        room_second.classList.toggle('hidden');
-        room_second.classList.toggle('show');
-        room_third.classList.toggle('hidden');
-        room_third.classList.toggle('show');
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.add('slider-dot-active');
-    }
-    else if (room_third.classList.contains('show')) {
-        room_third.classList.toggle('hidden');
-        room_third.classList.toggle('show');
-        room_first.classList.toggle('hidden');
-        room_first.classList.toggle('show');
-        room_dot1.classList.add('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-    }
+    let currentIndex = Array.from(room_first.classList).includes('show') ? 0 :
+        Array.from(room_second.classList).includes('show') ? 1 : 2;
+    let room_Index = currentIndex === 2 ? 0 : currentIndex + 1;
+    switchSlide(currentIndex, room_Index);
 }
 
-// Алгоритм переключения карточек комнат по таймеру
-let room_Index = 1;
-let timerId = setInterval(function () {
-    let room_Count = 3;
-    room_Index++;
-    if (room_Index > room_Count) {
-        room_Index = 1;
-    }
-    console.log(room_Index);
-    if (room_Index == 1) {
-        room_dot1.classList.add('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-        room_first.classList.remove('hidden');
-        room_first.classList.add('show');
-        room_second.classList.add('hidden');
-        room_second.classList.remove('show');
-        room_third.classList.remove('show');
-        room_third.classList.add('hidden');
-    }
-    else if (room_Index == 2) {
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.add('slider-dot-active');
-        room_dot3.classList.remove('slider-dot-active');
-        room_first.classList.add('hidden');
-        room_first.classList.remove('show');
-        room_second.classList.remove('hidden');
-        room_second.classList.add('show');
-        room_third.classList.remove('show');
-        room_third.classList.add('hidden');
-    }
-    else if (room_Index == 3) {
-        room_dot1.classList.remove('slider-dot-active');
-        room_dot2.classList.remove('slider-dot-active');
-        room_dot3.classList.add('slider-dot-active');
-        room_first.classList.add('hidden');
-        room_first.classList.remove('show');
-        room_second.classList.add('hidden');
-        room_second.classList.remove('show');
-        room_third.classList.add('show');
-        room_third.classList.remove('hidden');
-    }
+let room_Index = 0; // Индекс текущей карточки
+const room_Count = 3; // Общее количество карточек
 
-}, 5000);
+// Устанавливаем интервал для автоматического переключения карточек
+let timerId = setInterval(function () {
+    room_Index = (room_Index + 1) % room_Count; // Увеличиваем индекс, возвращаемся к 0 после последней карточки
+    switchSlide(0, room_Index); // Переключаем карточки
+}, 5000); // Интервал переключения карточек (5 секунд)
 
 // Остановка таймера при клике на любой элемент
 document.addEventListener('click', stopIntervalOnClick);
@@ -179,7 +89,7 @@ function stopIntervalOnClick() {
     console.log('Интервал остановлен!');
 }
 
-// Управление карточками отзывов с помощью кнопки вперед
+// Функция управления карточками отзывов
 review_arrow_next.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
@@ -240,7 +150,6 @@ review_dot1.onclick = function () {
         review_card.classList.remove('left-two');
         review_card.classList.add('right-two');
     }
-
     if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
         review_dot1.classList.add('slider-dot-active');
@@ -248,8 +157,8 @@ review_dot1.onclick = function () {
         review_card.classList.remove('left-back');
         review_card.classList.add('right-back');
     }
-
 }
+
 review_dot2.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
@@ -258,7 +167,6 @@ review_dot2.onclick = function () {
         review_card.classList.add('left-two');
         review_card.classList.remove('right-two');
     }
-
     if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
         review_dot2.classList.add('slider-dot-active');
@@ -267,15 +175,15 @@ review_dot2.onclick = function () {
         review_card.classList.remove('left-back');
     }
 }
+
 review_dot3.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
-        review_dot3.classList.add('slider-dot-active'); 
+        review_dot3.classList.add('slider-dot-active');
         review_card.classList.remove('right-back');
         review_card.classList.add('left-back');
         review_card.classList.remove('right-two');
     }
-
     if (review_dot2.classList.contains('slider-dot-active')) {
         review_dot2.classList.remove('slider-dot-active');
         review_dot3.classList.add('slider-dot-active');
@@ -287,7 +195,7 @@ review_dot3.onclick = function () {
 
 /* Отключение обновления страницы после нажатия кнопки в форме
 Сделано для того, чтобы можно было отобразить подтверждение */
-document.querySelector('form').addEventListener('submit', function(e) {
+document.querySelector('form').addEventListener('submit', function (e) {
     e.preventDefault();
 });
 
@@ -308,46 +216,44 @@ document.querySelectorAll(".button-low").forEach(el => {
 })
 
 // Добавление маски для номера телефона (Честно взятое из интернета) 
-window.addEventListener("DOMContentLoaded", function() {
-    [].forEach.call( document.querySelectorAll('.tel'), function(input) {
-      var keyCode;
-      function mask(event) {
-        event.keyCode && (keyCode = event.keyCode);
-        var pos = this.selectionStart;
-        if (pos < 3) event.preventDefault();
-        var matrix = "+7 (___) ___ ____",
-            i = 0,
-            def = matrix.replace(/\D/g, ""),
-            val = this.value.replace(/\D/g, ""),
-            new_value = matrix.replace(/[_\d]/g, function(a) {
-                return i < val.length ? val.charAt(i++) : a
-            });
-        i = new_value.indexOf("_");
-        if (i != -1) {
-            i < 5 && (i = 3);
-            new_value = new_value.slice(0, i)
+window.addEventListener("DOMContentLoaded", function () {
+    [].forEach.call(document.querySelectorAll('.tel'), function (input) {
+        var keyCode;
+        function mask(event) {
+            event.keyCode && (keyCode = event.keyCode);
+            var pos = this.selectionStart;
+            if (pos < 3) event.preventDefault();
+            var matrix = "+7 (___) ___ ____",
+                i = 0,
+                def = matrix.replace(/\D/g, ""),
+                val = this.value.replace(/\D/g, ""),
+                new_value = matrix.replace(/[_\d]/g, function (a) {
+                    return i < val.length ? val.charAt(i++) : a
+                });
+            i = new_value.indexOf("_");
+            if (i != -1) {
+                i < 5 && (i = 3);
+                new_value = new_value.slice(0, i)
+            }
+            var reg = matrix.substr(0, this.value.length).replace(/_+/g,
+                function (a) {
+                    return "\\d{1," + a.length + "}"
+                }).replace(/[+()]/g, "\\$&");
+            reg = new RegExp("^" + reg + "$");
+            if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
+                this.value = new_value;
+            }
+            if (event.type == "blur" && this.value.length < 5) {
+                this.value = "";
+            }
         }
-        var reg = matrix.substr(0, this.value.length).replace(/_+/g,
-            function(a) {
-                return "\\d{1," + a.length + "}"
-            }).replace(/[+()]/g, "\\$&");
-        reg = new RegExp("^" + reg + "$");
-        if (!reg.test(this.value) || this.value.length < 5 || keyCode > 47 && keyCode < 58) {
-          this.value = new_value;
-        }
-        if (event.type == "blur" && this.value.length < 5) {
-          this.value = "";
-        }
-      }
-  
-      input.addEventListener("input", mask, false);
-      input.addEventListener("focus", mask, false);
-      input.addEventListener("blur", mask, false);
-      input.addEventListener("keydown", mask, false);
-  
+
+        input.addEventListener("input", mask, false);
+        input.addEventListener("focus", mask, false);
+        input.addEventListener("blur", mask, false);
+        input.addEventListener("keydown", mask, false);
     });
-  
-  });
+});
 
 // Закрытие попап при нажатии на кнопку "Закрыть"
 button_close.onclick = function () {
@@ -361,12 +267,11 @@ button_close_accept.onclick = function () {
     popup_accept.classList.toggle('show');
     popup_wrapper.classList.toggle('hidden');
     popup_wrapper.classList.toggle('show');
-    location.reload(); // перезагружаем страницу
+    document.querySelector('.form-main').reset();; // очищаем форму
 }
 
 // Переключение попапа при нажатии на кнопку "Забронировать"
 button_reservation.onclick = function () {
-    
     popup.classList.toggle('hidden');
     popup.classList.toggle('show');
     popup_accept.classList.toggle('hidden');
@@ -379,6 +284,6 @@ button_accept.onclick = function () {
     popup_accept.classList.toggle('show');
     popup_wrapper.classList.toggle('hidden');
     popup_wrapper.classList.toggle('show');
-    location.reload(); // перезагружаем страницу
+    document.querySelector('.form-main').reset();; // очищаем форму
 }
 
