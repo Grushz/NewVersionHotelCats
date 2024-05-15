@@ -42,7 +42,7 @@ function switchSlide(currentIndex, room_Index) {
     slides[room_Index].classList.remove('hidden');
     slides[room_Index].classList.add('show');
 }
-
+// Действия при клике на каждую точку навигации
 room_dot1.onclick = function () {
     switchSlide(0, 0);
 }
@@ -93,22 +93,19 @@ review_arrow_next.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
         review_dot2.classList.add('slider-dot-active');
-        review_card.classList.remove('right-back');
+        review_card.classList.remove('right-back', 'right-two');
         review_card.classList.add('left-two');
-        review_card.classList.remove('right-two');
     }
     else if (review_dot2.classList.contains('slider-dot-active')) {
         review_dot2.classList.remove('slider-dot-active');
-        review_card.classList.remove('left-two');
-        review_card.classList.remove('right-three');
         review_dot3.classList.add('slider-dot-active');
+        review_card.classList.remove('left-two', 'right-three');
         review_card.classList.add('left-three');
     }
     else if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
-        review_card.classList.remove('left-three');
-        review_card.classList.remove('left-back');
         review_dot1.classList.add('slider-dot-active');
+        review_card.classList.remove('left-three', 'left-back');
         review_card.classList.add('right-back');
     }
 }
@@ -118,24 +115,20 @@ review_arrow_back.onclick = function () {
     if (review_dot2.classList.contains('slider-dot-active')) {
         review_dot2.classList.remove('slider-dot-active');
         review_dot1.classList.add('slider-dot-active');
-        review_card.classList.remove('right-three');
-        review_card.classList.remove('left-two');
+        review_card.classList.remove('right-three', 'left-two');
         review_card.classList.add('right-two');
     }
     else if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
-        review_card.classList.remove('left-three');
-        review_card.classList.remove('left-back');
-        review_card.classList.remove('right-back');
         review_dot2.classList.add('slider-dot-active');
+        review_card.classList.remove('left-three', 'left-back', 'right-back');
         review_card.classList.add('right-three');
     }
     else if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
-        review_card.classList.remove('right-two');
         review_dot3.classList.add('slider-dot-active');
+        review_card.classList.remove('right-two', 'right-back');
         review_card.classList.add('left-back');
-        review_card.classList.remove('right-back');
     }
 }
 
@@ -145,15 +138,13 @@ review_dot1.onclick = function () {
     if (review_dot2.classList.contains('slider-dot-active')) {
         review_dot2.classList.remove('slider-dot-active');
         review_dot1.classList.add('slider-dot-active');
-        review_card.classList.remove('right-three');
-        review_card.classList.remove('left-two');
+        review_card.classList.remove('right-three', 'left-two');
         review_card.classList.add('right-two');
     }
     if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
         review_dot1.classList.add('slider-dot-active');
-        review_card.classList.remove('left-three');
-        review_card.classList.remove('left-back');
+        review_card.classList.remove('left-three', 'left-back');
         review_card.classList.add('right-back');
     }
 }
@@ -162,16 +153,14 @@ review_dot2.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
         review_dot2.classList.add('slider-dot-active');
-        review_card.classList.remove('right-back');
+        review_card.classList.remove('right-back', 'right-two');
         review_card.classList.add('left-two');
-        review_card.classList.remove('right-two');
     }
     if (review_dot3.classList.contains('slider-dot-active')) {
         review_dot3.classList.remove('slider-dot-active');
         review_dot2.classList.add('slider-dot-active');
-        review_card.classList.remove('left-three');
+        review_card.classList.remove('left-three', 'left-back');
         review_card.classList.add('right-three');
-        review_card.classList.remove('left-back');
     }
 }
 
@@ -179,15 +168,13 @@ review_dot3.onclick = function () {
     if (review_dot1.classList.contains('slider-dot-active')) {
         review_dot1.classList.remove('slider-dot-active');
         review_dot3.classList.add('slider-dot-active');
-        review_card.classList.remove('right-back');
+        review_card.classList.remove('right-back', 'right-two');
         review_card.classList.add('left-back');
-        review_card.classList.remove('right-two');
     }
     if (review_dot2.classList.contains('slider-dot-active')) {
         review_dot2.classList.remove('slider-dot-active');
         review_dot3.classList.add('slider-dot-active');
-        review_card.classList.remove('right-three');
-        review_card.classList.remove('left-two');
+        review_card.classList.remove('right-three', 'left-two');
         review_card.classList.add('left-three');
     }
 }

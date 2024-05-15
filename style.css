@@ -652,11 +652,21 @@
   transition: opacity 0.5s linear, visibility 0.5s linear;
 }
 
+.popup-wrapper-inner {
+  margin: 0 auto;
+  height: 100vh;
+  width: 570px;
+  overflow: scroll;
+}
+.popup-wrapper-inner::-webkit-scrollbar { width: 0; }
+.popup-wrapper-inner { -ms-overflow-style: none; }
+
 .popup {
   margin: 0 auto;
   position: sticky;
   width: 570px;
   height: 649px;
+  overflow: scroll;
   background-color: white;
   display: flex;
   align-items: center;

@@ -1,6 +1,20 @@
 # NewVersionHotelCats
+<p><b>HotelCats minor update</b></p>
+<p><b>Date 15.05.2024</b></p>
+<h3>Update list:</h3>
+<ol>
+<li>Typos corrected</li>
+<li>Only background images on buttons</li>
+<li>Fixed page reload when submitting a form. Now form clears after submitting</li>
+<li>A lot of work has been done to unify and improve the JS code</li>
+<li>Font-weight for buttons changed</li>
+<li>Fixed sticky popup</li>
+<h4>Thanks you for your attention!</h4>
+
+
+
 <p><b>HotelCats return again with new code and functions inside</b></p>
-<p><b>Date 02.05.2024</b></p>
+<p><b>Date 03.05.2024</b></p>
 <h3>Update list:</h3>
 <ol>
 <li>Added a lot of CSS animations</li>
