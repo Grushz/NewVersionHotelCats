@@ -1,6 +1,6 @@
 # NewVersionHotelCats
 <p><b>HotelCats minor update</b></p>
-<p><b>Date 15.05.2024</b></p>
+<p><b>Date 16.05.2024</b></p>
 <h3>Update list:</h3>
 <ol>
 <li>Typos corrected</li>
